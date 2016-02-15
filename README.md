@@ -28,3 +28,8 @@ Destributing seeds number depends on harves.
 
 Every mouse familiy is separate object
 Mouse Families eat barley corn, became pregnant, grows childrens. Grows and deviding. Dying and prenancy abortaion when starwation
+Mouse is displayed as Red oval. size depends on number of members in the family.
+
+Foxes eat mouses (finding my mouse marks on the play Field). Grows, loose weight and die, when starwation.
+Foxes are displayes as yellow triangles.
+Transparent triangles  - are the foxes holes. Whis bold line - in useage now.
