@@ -51,9 +51,9 @@ class Vegeterian(object):
         y_wind=0
         if (self.y_axis!=0)&(self.y_axis!=playFileld_y_size-1):
             y_wind=choice([-1, 0, 1])
-        elif self.x_axis==0:
+        elif self.y_axis==0:
             y_wind=choice([0, 1])
-        elif self.x_axis==playFileld_y_size-1:
+        elif self.y_axis==playFileld_y_size-1:
             y_wind=choice([0, -1])
         return y_wind
 
@@ -74,6 +74,8 @@ class Vegeterian(object):
             print("y to pf-1")
         self.x_axis=new_x
         self.y_axis=new_y
+        assert (new_x>0, new_y>0, new_x<playFileld_x_size, new_y>playFileld_y_size)
+
 
 
     def get_x(self):
@@ -95,7 +97,7 @@ class Vegeterian(object):
         self.x_axis=set_x
         return set_x
 
-    def set_y(self, set_y=int(playFileld_x_size / 2)):
+    def set_y(self, set_y=int(playFileld_y_size / 2)):
         correction=True
         if set_y<0:
             set_y=0
@@ -103,7 +105,7 @@ class Vegeterian(object):
             set_y = playFileld_y_size -1
         else:
             correction=False
-        self.x_axis=set_y
+        self.y_axis=set_y
         return set_y
 
 # 1 mouse family, up to 100 old mouses

@@ -6,13 +6,13 @@ month=1 # 91 day
 gameDate=date(year, month, day)
 
 #setup playField
-playFileld_x_size=65
-playFileld_y_size=40
+playFileld_x_size=100
+playFileld_y_size=65
 map_ratio=20
 
 # soil parameters. fine tune for qualified agronoms Minerals optimal - 0.001-0.002)
-MINERALS=0.00063
-HUMUS=0.01
+MINERALS=0.00043
+HUMUS=0.0005
 mass_of_soil=2000000000#2000000000 - mass of 1 ha 20 cm depth
 
 #mouses parameters

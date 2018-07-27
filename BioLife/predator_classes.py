@@ -64,7 +64,7 @@ class Predator(object):
         self.x_axis=set_x
         return set_x
 
-    def set_y(self, set_y=int(playFileld_x_size / 2)):
+    def set_y(self, set_y=int(playFileld_y_size / 2)):
         correction=True
         if set_y<0:
             set_y=0
@@ -72,7 +72,7 @@ class Predator(object):
             set_y = playFileld_y_size -1
         else:
             correction=False
-        self.x_axis=set_y
+        self.y_axis=set_y
         return set_y
 
 

@@ -211,17 +211,47 @@ while True:
         if allMouses[mouse_number]:
             x_mouse=allMouses[mouse_number].get_x()
             y_mouse=allMouses[mouse_number].get_y()
+            assert(x_mouse>0, y_mouse>0, x_mouse<playFileld_x_size, y_mouse<playFileld_y_size )
             #print("x_={}, y_={}, unique_id={}, members={}, number={}".format(x_mouse, y_mouse, allMouses[mouse_number].uniqe_id, allMouses[mouse_number].old_members, mouse_number))
             #marking cell with mouse id
             if allMouses[mouse_number].old_members>10:
                 #print("x_={}, y_={}, unique_id={}, members={}, number={}".format(x_mouse, y_mouse, allMouses[mouse_number].uniqe_id, allMouses[mouse_number].old_members, mouse_number))
-                playField[x_mouse][y_mouse].mouse_mark.append(mouse_number)
+
+                try:
+                    playField[x_mouse][y_mouse].mouse_mark.append(mouse_number)
+                except IndexError as exception:
+                    errors_.append(exception)
+                    print("Error detected: {}".format(exception))
+                    print("Index error. Parameters: x_mouse={}, y_mouse={}, mouse number = {})"
+                          "".format(x_mouse, y_mouse, mouse_number))
+                    promtinput = input("Error detected, enter any value to continue")
+                except Exception as general_exception:
+                    errors_.append(general_exception)
+                    print("Error detected: {}".format(general_exception))
+                    print("Other error. Parameters: x_mouse={}, y_mouse={}, mouse number = {})"
+                          "".format(x_mouse, y_mouse,  mouse_number))
+                    promtinput = input("Error detected, enter any value to continue")
 
             size_=allMouses[mouse_number].old_members
 
             draw_mouse_family(x_mouse, y_mouse, size_)
             #1/150 of capacity can be eaten at one day
-            food_availiable_=int(playField[x_mouse][y_mouse].corn_food_stored * food_consumption_coeficient)
+
+            try:
+                food_availiable_=int(playField[x_mouse][y_mouse].corn_food_stored * food_consumption_coeficient)
+            except IndexError as exception:
+                errors_.append(exception)
+                print("Error detected during food consumption: {}".format(exception))
+                print("Index error. Parameters: x_mouse={}, y_mouse={})"
+                      "".format(x_mouse, y_mouse))
+                promtinput = input("Error detected, enter any value to continue")
+
+            except Exception as general_exception:
+                errors_.append(general_exception)
+                print("Error detected: {}".format(general_exception))
+                print("Index error. Parameters: x_mouse={}, y_mouse={})"
+                      "".format(x_mouse, y_mouse))
+                promtinput = input("Error detected, enter any value to continue")
 
             # move_direction=max_food_direction(x_, y_)
             #running FOOD CONSUMPTION func.
